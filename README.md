@@ -1,4 +1,4 @@
-**Tugas 1**: Geocoding (Alamat dari Koordinat)
+# **Tugas 1**: Geocoding (Alamat dari Koordinat)
 Saat ini kita hanya menampilkan Lat/Lng. Buatlah agar aplikasi menampilkan alamat
 (nama jalan, kota, dll) dari koordinat yang didapat.
 Petunjuk:
@@ -25,7 +25,7 @@ Petunjuk:
    ![WhatsApp Image 2025-11-10 at 15 53 14_618506ef](https://github.com/user-attachments/assets/3e5d1a5b-fd4c-4657-81cc-30bd2da2f46b)
 
 
-**Tugas 2**: Jarak Real-time ke Titik Tetap
+# **Tugas 2**: Jarak Real-time ke Titik Tetap
 Manfaatkan fungsi Geolocator.distanceBetween dari Langkah 4.
 1. Buat variabel String? distanceToPNB; di MyHomePageState.
    <img width="1144" height="670" alt="image" src="https://github.com/user-attachments/assets/99f718db-0ce3-41e7-ae09-8ccb17c18cef" />
