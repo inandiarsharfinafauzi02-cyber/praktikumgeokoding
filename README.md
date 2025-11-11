@@ -29,11 +29,19 @@ Petunjuk:
 Manfaatkan fungsi Geolocator.distanceBetween dari Langkah 4.
 1. Buat variabel String? distanceToPNB; di MyHomePageState.
    <img width="1144" height="670" alt="image" src="https://github.com/user-attachments/assets/99f718db-0ce3-41e7-ae09-8ccb17c18cef" />
+   penjelasan: 
+   Deklarasi _distanceToPNB adalah variabel yang digunakan untuk merekam jarak dinamis pengguna ke PNB. Dipilih tipe String? karena angka jarak perlu diformat sebagai teks untuk tampilan (display), dan kemampuannya untuk bernilai null menunjukkan bahwa ia belum berisi data sebelum perhitungan jarak dilakukan.
+   
 2.  Di dalam startTracking (di dalam .listen()), panggil fungsi untuk menghitung jarak:
    <img width="1412" height="1452" alt="image" src="https://github.com/user-attachments/assets/8b86a057-d11c-4282-8ecd-3d3e2d62930e" />
+   penjelasan:
+Untuk menentukan lokasi PNB sebagai titik acuan, digunakan dua angka tetap (const) untuk menyimpan Lintang dan Bujur yang tidak akan pernah berubah. Bagian utama dari kode ini kemudian memanggil fungsi Geolocator.distanceBetween() yang bertugas menghitung seberapa dekat (dalam satuan meter) lokasi pengguna yang baru terdeteksi dengan titik PNB yang sudah dipatok itu, dan hasil jarak ini disimpan dalam variabel distanceInMeters.
+
 3. Simpan hasilnya di distanceToPNB menggunakan setState.
    <img width="1784" height="484" alt="image" src="https://github.com/user-attachments/assets/4341fe05-0e72-46ef-895d-d2fa0ea08ed3" />
-4. Tampilkan distanceToPNB di UI agar jaraknya ter-update secara real-time saat Anda bergerak
+   penjelasan:
+   Penggunaan setState() memastikan tampilan aplikasi (UI) diperbarui secara instan dengan jarak terbaru ke PNB. Di dalamnya, jarak dari meter dihitung, dikonversi ke kilometer (/ 1000), diformat menjadi teks dua desimal, dan disimpan ke _distanceToPNB, memaksa Flutter untuk menggambar ulang layar dengan nilai baru tersebut.
+5. Tampilkan distanceToPNB di UI agar jaraknya ter-update secara real-time saat Anda bergerak
 <img width="1294" height="782" alt="image" src="https://github.com/user-attachments/assets/6718bd0b-9429-4b85-be35-1239e92dcae5" />
 
 ## Hasil
