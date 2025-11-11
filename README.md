@@ -25,9 +25,18 @@ Petunjuk:
    ![WhatsApp Image 2025-11-10 at 15 53 14_618506ef](https://github.com/user-attachments/assets/3e5d1a5b-fd4c-4657-81cc-30bd2da2f46b)
 
 
+**Tugas 2**: Jarak Real-time ke Titik Tetap
+Manfaatkan fungsi Geolocator.distanceBetween dari Langkah 4.
+1. Buat variabel String? distanceToPNB; di MyHomePageState.
+   <img width="1144" height="670" alt="image" src="https://github.com/user-attachments/assets/99f718db-0ce3-41e7-ae09-8ccb17c18cef" />
+2.  Di dalam startTracking (di dalam .listen()), panggil fungsi untuk menghitung jarak:
+   <img width="1412" height="1452" alt="image" src="https://github.com/user-attachments/assets/8b86a057-d11c-4282-8ecd-3d3e2d62930e" />
+3. Simpan hasilnya di distanceToPNB menggunakan setState.
+   <img width="1784" height="484" alt="image" src="https://github.com/user-attachments/assets/4341fe05-0e72-46ef-895d-d2fa0ea08ed3" />
+4. Tampilkan distanceToPNB di UI agar jaraknya ter-update secara real-time saat Anda bergerak
+<img width="1294" height="782" alt="image" src="https://github.com/user-attachments/assets/6718bd0b-9429-4b85-be35-1239e92dcae5" />
 
+## Hasil
+![WhatsApp Image 2025-11-11 at 19 10 44_ee17bac1](https://github.com/user-attachments/assets/33084a4f-8ccc-498d-bcb9-55b7baefd181)
 
-
-#Hasil
-![WhatsApp Image 2025-11-10 at 15 53 14_6a300021](https://github.com/user-attachments/assets/e5119959-096e-4d02-a306-9a6058d8354d)
 
