@@ -34,11 +34,12 @@ class _MyHomePageState extends State<MyHomePage> {
   String? _currentAddress; // Menyimpan alamat hasil geocoding
   StreamSubscription<Position>? _positionStream; // Penyimpan stream
 
+  String? _distanceToPNB; // Menyimpan jarak real-time ke titik PNB
+
   // Variabel untuk Latihan 1 dan 2 telah dihapus dari versi ini
 
   @override
   void dispose() {
-    // PENTING: Selalu batalkan stream saat widget dihancurkan
     _positionStream?.cancel();
     super.dispose();
   }
@@ -134,7 +135,26 @@ class _MyHomePageState extends State<MyHomePage> {
             setState(() {
               _currentPosition = position;
               _errorMessage = null;
-            });   
+            });
+
+          // Titik tetap
+          const double pnbLatitude = -8.2186;
+          const double pnbLongitude = 114.3676;
+
+
+          // Hitung jarak real-time menggunakan Geolocator.distanceBetween
+          double distanceInMeters = Geolocator.distanceBetween(
+            position.latitude,
+            position.longitude,
+            pnbLatitude,
+            pnbLongitude,
+          );
+
+          // Simpan hasil ke variabel state (_distanceToPNB)
+          setState(() {
+            _distanceToPNB = (distanceInMeters / 1000).toStringAsFixed(2); // ubah ke km
+          });
+
           
           await _getAddressFromLatLng(position);  // Panggil geocoding setiap update lokasi
           });
@@ -193,6 +213,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+
+                        // UI
                         SizedBox(height: 16),
                       if (_currentAddress != null)
                         Text(
@@ -203,6 +225,19 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: Colors.black87,
                           ),
                         ),
+                    
+                    // Tampilkan jarak real-time ke PNB
+                    if (_distanceToPNB != null)
+                      Text(
+                        "Jarak ke PNB: $_distanceToPNB km",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+
 
                     ],
                   ),
